@@ -4,13 +4,10 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --color-primary-custom: #29ADB2;
-  --color-second-custom: #508C9B;
-  --color-third-custom: #8ed1fc;
-  --color-four-custom: #EEEEEE;
-  --color-five-custom: #468585;
-  --color-six-custom: #7FC8A9;
-  --color-seven-custom: #E5E4E2;
+  --color-primary-custom: #79EBF6;
+  --color-second-custom: #D9F8FB;
+  --color-third-custom: #D5E3E6;
+  --color-four-custom: #FBFCFE;
 }
 
 @theme inline {
