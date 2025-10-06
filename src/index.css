@@ -180,5 +180,5 @@
 }
 
 .grid-customized {
-  grid-template-columns: repeat(auto-fill, minmax(310px, 320px));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 250px));
 }
