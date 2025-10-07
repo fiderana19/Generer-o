@@ -7,7 +7,7 @@ const Navigation: React.FC = () => {
 
     return (
         <div className="px-10 top-0 fixed bg-transparent w-full flex items-center justify-between py-3">
-            <Link to='/' className="font-extrabold text-xl">Générer-o</Link>
+            <Link to='/personnalize/A' className="font-extrabold text-xl">Générer-o</Link>
             <div className="flex gap-4">
                 <Button variant={'link'}>A propos</Button>
                 <Button><GithubOutlined />Github</Button>
