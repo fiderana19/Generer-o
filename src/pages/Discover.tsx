@@ -11,7 +11,6 @@ const Discover: React.FC = () => {
                 <Navigation />
             </Suspense>
             <div className="px-[12%]">
-                <div className='font-extrabold text-2xl text-center'>Les modèles</div>
                 <div className='text-gray-500 text-center my-2'>Les modèles de CV professionnels disponibles dans le site.</div>
                 <div className='my-4 grid grid-customized justify-center gap-10'>
                     <div className='rounded transition-all duration-300 hover:scale-[1.03]'>
