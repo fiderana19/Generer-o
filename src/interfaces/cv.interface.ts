@@ -1,6 +1,6 @@
-export interface General {
+export interface GeneralData {
   firstName: string;
-  lastName: string;
+  lastName: string | null | undefined;
   title: string; 
   profileSummary: string;
 }
@@ -47,7 +47,7 @@ export interface LanguagesItem {
 }
 
 export interface CVData {
-  general: General;
+  general: GeneralData;
 
   contact: ContactData;
   

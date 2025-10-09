@@ -5,8 +5,18 @@ export const TemplateA: React.FC = () => {
 
   return (
     <div>
-      { cvData.general.firstName }
-      a ito
+      <div>
+        { cvData.general.firstName }        
+      </div>
+      <div>
+        { cvData.general.lastName }        
+      </div>
+      <div>
+        { cvData.general.title }        
+      </div>
+      <div>
+        { cvData.general.profileSummary }        
+      </div>
     </div>
   );
 };
