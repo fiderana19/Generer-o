@@ -9,10 +9,10 @@ export interface ContactData {
   address: string; 
   email: string;
   phone: string;
-  website: string;
-  facebook: string;
-  github: string;
-  linkedin: string;
+  website: string | null | undefined;
+  facebook: string | null | undefined;
+  github: string | null | undefined;
+  linkedin: string | null | undefined;
 }
 
 export interface EducationEntry {

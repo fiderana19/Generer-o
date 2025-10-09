@@ -17,6 +17,28 @@ export const TemplateA: React.FC = () => {
       <div>
         { cvData.general.profileSummary }        
       </div>
+-------------
+      <div>
+        { cvData.contact.address }        
+      </div>
+      <div>
+        { cvData.contact.email }        
+      </div>
+      <div>
+        { cvData.contact.phone }        
+      </div>
+      <div>
+        { cvData.contact.facebook }        
+      </div>
+      <div>
+        { cvData.contact.website }        
+      </div>
+      <div>
+        { cvData.contact.github }        
+      </div>
+      <div>
+        { cvData.contact.linkedin }        
+      </div>
     </div>
   );
 };
