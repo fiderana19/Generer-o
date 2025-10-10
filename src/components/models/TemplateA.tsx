@@ -1,4 +1,5 @@
 import { useCV } from "@/context/CVContext";
+import { EducationEntry } from "@/interfaces/cv.interface";
 
 export const TemplateA: React.FC = () => {
   const { cvData } = useCV();
@@ -38,6 +39,27 @@ export const TemplateA: React.FC = () => {
       </div>
       <div>
         { cvData.contact.linkedin }        
+      </div>
+      ***************
+      <div>
+        {
+          cvData.education && cvData.education.map((ed: EducationEntry, index: any) => {
+            return <div key={index} className="border">
+              <div>
+                {index}                
+              </div>
+              <div>
+                {ed.period}                
+              </div>
+              <div>
+                {ed.title}                
+              </div>
+              <div>
+                {ed.institution}                
+              </div>
+            </div>
+          })
+        }
       </div>
     </div>
   );

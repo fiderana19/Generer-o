@@ -16,3 +16,9 @@ export const ContactCVDataValidation = yup.object({
     github: yup.string().nullable().optional(),
     linkedin: yup.string().nullable().optional(),
 })
+
+export const EducationCVDataValidation = yup.object({
+    period: yup.string().required("La periode de l'etude est requise !"),
+    title: yup.string().required("La titre est requise !"),
+    institution: yup.string().required("L'etablissement est requis !"), 
+})

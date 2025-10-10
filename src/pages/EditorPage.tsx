@@ -27,7 +27,7 @@ const templates = {
 
 const EditorPage: React.FC<any> = () => {
   const { templateId } = useParams<{ templateId: string }>();
-  const [progress, setProgress] = useState<number>(4);
+  const [progress, setProgress] = useState<number>(40);
 
   const nextProgress = () => {
     setProgress(progress + 12)
