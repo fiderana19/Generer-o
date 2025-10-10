@@ -30,7 +30,7 @@ export interface ExperienceEntry {
 
 export interface SkillsItem {
   skill: string,
-  level: string
+  level: number
 }
 
 export interface SoftSkillsItem {

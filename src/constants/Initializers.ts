@@ -10,3 +10,8 @@ export const createNewExperience = () => ({
     company: "", 
     description: "" 
 });
+
+export const createNewSkills = () => ({ 
+    skill: "", 
+    level: 0, 
+});

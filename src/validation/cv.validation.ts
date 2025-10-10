@@ -29,3 +29,8 @@ export const ExperienceCVDataValidation = yup.object({
     company: yup.string().required("La societe est requise !"), 
     description: yup.string().required("Une description est requise !"), 
 })
+
+export const SkillsCVDataValidation = yup.object({
+    skill: yup.string().required("La competence est requise !"),
+    level: yup.number().max(5, "Le niveau est sur une echelle de 1 à 5 !").required("Le niveau est requis !"),
+})
