@@ -22,3 +22,10 @@ export const EducationCVDataValidation = yup.object({
     title: yup.string().required("La titre est requise !"),
     institution: yup.string().required("L'etablissement est requis !"), 
 })
+
+export const ExperienceCVDataValidation = yup.object({
+    period: yup.string().required("La periode de l'etude est requise !"),
+    title: yup.string().required("La titre est requise !"),
+    company: yup.string().required("La societe est requise !"), 
+    description: yup.string().required("Une description est requise !"), 
+})

@@ -3,3 +3,10 @@ export const createNewEducation = () => ({
     title: "", 
     institution: "" 
 });
+
+export const createNewExperience = () => ({ 
+    period: "", 
+    title: "", 
+    company: "", 
+    description: "" 
+});
