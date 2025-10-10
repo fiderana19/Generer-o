@@ -12,19 +12,15 @@ import { ContactCVDataValidation } from "@/validation/cv.validation";
 import { useCV } from "@/context/CVContext";
 import { handleNumberKeyPress } from "@/utils/handleKeyPress";
 
-interface CVFormProps {
-    nextProgress: () => void;
-}
-
-const Contact: React.FC<CVFormProps> = ({ nextProgress }) => {
-    const { updateObjectSection } = useCV();
+const Contact: React.FC = () => {
+    const { updateObjectSection, updateProgress } = useCV();
     const { handleSubmit: submit, formState: { errors, isSubmitting }, control } = useForm<ContactData>({
         resolver: yupResolver(ContactCVDataValidation)
     })
 
     const handleSubmit = (data: ContactData) => {
         updateObjectSection('contact', data)
-        nextProgress();
+        updateProgress();
     }
 
     return(

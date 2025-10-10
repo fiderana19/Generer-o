@@ -14,12 +14,8 @@ import { createNewLanguage } from "@/constants/Initializers";
 import { handleNumberKeyPress } from "@/utils/handleKeyPress";
 import { LoadingOutlined } from "@ant-design/icons";
 
-interface CVFormProps {
-    nextProgress: () => void;
-}
-
-const Languages: React.FC<CVFormProps> = ({ nextProgress }) => {
-    const { addArrayItem, removeArrayItem, cvData } = useCV();
+const Languages: React.FC = () => {
+    const { addArrayItem, removeArrayItem, cvData, updateProgress } = useCV();
     const { handleSubmit: submit, formState: { errors, isSubmitting }, control, reset } = useForm<LanguagesItem>({
         resolver: yupResolver(LanguagesCVDataValidation),
         defaultValues: createNewLanguage(),
@@ -89,7 +85,7 @@ const Languages: React.FC<CVFormProps> = ({ nextProgress }) => {
                         })
                     }
                     <div className="mt-4 flex justify-end">
-                        <Button onClick={nextProgress}>Suivant</Button>
+                        <Button onClick={updateProgress}>Suivant</Button>
                     </div>
                 </ScrollArea>
             </div>

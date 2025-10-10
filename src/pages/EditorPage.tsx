@@ -1,6 +1,6 @@
 import { TemplateA } from '@/components/models/TemplateA';
 import { TemplateB } from '@/components/models/TemplateB';
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import { useReactToPrint } from 'react-to-print';
 import { PrintableCV } from './cvdisplay/PrintableCV';
@@ -10,15 +10,9 @@ import {
   Card,
 } from "@/components/ui/card"
 import { Progress } from '@/components/ui/progress';
-import General from '@/components/forms/General';
-import Contact from '@/components/forms/Contact';
-import Education from '@/components/forms/Education';
-import Experience from '@/components/forms/Experience';
-import Skills from '@/components/forms/Skills';
-import SoftSkills from '@/components/forms/SoftSkills';
-import Languages from '@/components/forms/Languages';
-import Hobbies from '@/components/forms/Hobbies';
-import { CoffeeOutlined } from '@ant-design/icons';
+import { CoffeeOutlined, LoadingOutlined } from '@ant-design/icons';
+import { useCV } from '@/context/CVContext';
+import CVForms from '@/components/forms/CVForms';
 
 const templates = {
   'A': TemplateA,
@@ -27,11 +21,7 @@ const templates = {
 
 const EditorPage: React.FC<any> = () => {
   const { templateId } = useParams<{ templateId: string }>();
-  const [progress, setProgress] = useState<number>(88);
-
-  const nextProgress = () => {
-    setProgress(progress + 12)
-  }
+  const { progress } = useCV();
     
   const TemplateComponent = templates[templateId as keyof typeof templates] || TemplateA; 
 
@@ -39,7 +29,7 @@ const EditorPage: React.FC<any> = () => {
 
   const reactToPrintFn = useReactToPrint({
     contentRef: componentRef, 
-    });
+  });
 
   return (
     <div className="bg-four-custom py-16 flex min-h-screen">
@@ -60,14 +50,7 @@ const EditorPage: React.FC<any> = () => {
             {
               (progress !== 100) ?
                 <Card className='px-4'>
-                  {(progress === 4) && <General nextProgress={nextProgress} />}
-                  {(progress === 16) && <Contact nextProgress={nextProgress} />}
-                  {(progress === 28) && <Education nextProgress={nextProgress} />}
-                  {(progress === 40) && <Experience nextProgress={nextProgress} />}
-                  {(progress === 52) && <Skills nextProgress={nextProgress} />}
-                  {(progress === 64) && <SoftSkills nextProgress={nextProgress} />}
-                  {(progress === 76) && <Languages nextProgress={nextProgress} />}
-                  {(progress === 88) && <Hobbies nextProgress={nextProgress} />}
+                  <CVForms />
                 </Card>              
               :
               <Card className='px-8'>

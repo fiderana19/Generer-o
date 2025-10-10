@@ -10,19 +10,15 @@ import { GeneralCVDataValidation } from "@/validation/cv.validation";
 import { useCV } from "@/context/CVContext";
 import { LoadingOutlined } from "@ant-design/icons";
 
-interface CVFormProps {
-    nextProgress: () => void;
-}
-
-const General: React.FC<CVFormProps> = ({ nextProgress }) => {
-    const { updateObjectSection } = useCV();
+const General: React.FC = () => {
+    const { updateObjectSection, updateProgress } = useCV();
     const { handleSubmit: submit, formState: { errors, isSubmitting }, control } = useForm<GeneralData>({
         resolver: yupResolver(GeneralCVDataValidation)
     });
 
     const handleSubmit = (data: GeneralData) => {
         updateObjectSection('general', data);
-        nextProgress();
+        updateProgress();
     }
 
     return(

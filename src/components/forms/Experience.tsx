@@ -14,12 +14,8 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { ExperienceCVDataValidation } from "@/validation/cv.validation";
 import { useCV } from "@/context/CVContext";
 
-interface CVFormProps {
-    nextProgress: () => void;
-}
-
-const Experience: React.FC<CVFormProps> = ({ nextProgress }) => {
-    const { addArrayItem, removeArrayItem, cvData } = useCV();
+const Experience: React.FC = () => {
+    const { addArrayItem, removeArrayItem, cvData, updateProgress } = useCV();
     const { handleSubmit: submit, formState: { errors, isSubmitting }, control, reset } = useForm<ExperienceEntry>({
         defaultValues: createNewExperience(),
         resolver: yupResolver(ExperienceCVDataValidation)
@@ -107,7 +103,7 @@ const Experience: React.FC<CVFormProps> = ({ nextProgress }) => {
                         })
                     }
                     <div className="mt-4 flex justify-end">
-                        <Button onClick={nextProgress}>Suivant</Button>
+                        <Button onClick={updateProgress}>Suivant</Button>
                     </div>
                 </ScrollArea>
             </div>

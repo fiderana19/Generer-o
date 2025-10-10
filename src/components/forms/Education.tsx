@@ -13,12 +13,8 @@ import { useCV } from "@/context/CVContext";
 import { createNewEducation } from "@/constants/Initializers";
 import { LoadingOutlined } from "@ant-design/icons";
 
-interface CVFormProps {
-    nextProgress: () => void;
-}
-
-const Education: React.FC<CVFormProps> = ({ nextProgress }) => {
-    const { addArrayItem, removeArrayItem, cvData } = useCV();
+const Education: React.FC = () => {
+    const { addArrayItem, removeArrayItem, cvData, updateProgress } = useCV();
     const { handleSubmit: submit, formState: { errors, isSubmitting }, control, reset } = useForm<EducationEntry>({
         resolver: yupResolver(EducationCVDataValidation),
         defaultValues: createNewEducation(),
@@ -30,7 +26,7 @@ const Education: React.FC<CVFormProps> = ({ nextProgress }) => {
     }
 
     const handleNext = () => {
-        nextProgress();
+        updateProgress();
     }
 
     const handleDelete = (id: number) => {

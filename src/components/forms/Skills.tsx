@@ -14,12 +14,8 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { SkillsCVDataValidation } from "@/validation/cv.validation";
 import { useCV } from "@/context/CVContext";
 
-interface CVFormProps {
-    nextProgress: () => void;
-}
-
-const Skills: React.FC<CVFormProps> = ({ nextProgress }) => {
-    const { addArrayItem, removeArrayItem, cvData } = useCV();
+const Skills: React.FC = () => {
+    const { addArrayItem, removeArrayItem, cvData, updateProgress } = useCV();
     const { handleSubmit: submit, formState: { errors, isSubmitting }, control, reset } = useForm<SkillsItem>({
         defaultValues: createNewSkills(),
         resolver: yupResolver(SkillsCVDataValidation)
@@ -91,7 +87,7 @@ const Skills: React.FC<CVFormProps> = ({ nextProgress }) => {
                         })
                     }
                     <div className="mt-4 flex justify-end">
-                        <Button onClick={nextProgress}>Suivant</Button>
+                        <Button onClick={updateProgress}>Suivant</Button>
                     </div>
                 </ScrollArea>
             </div>

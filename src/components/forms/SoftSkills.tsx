@@ -13,12 +13,9 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { SoftSkillsCVDataValidation } from "@/validation/cv.validation";
 import { LoadingOutlined } from "@ant-design/icons";
 
-interface CVFormProps {
-    nextProgress: () => void;
-}
 
-const SoftSkills: React.FC<CVFormProps> = ({ nextProgress }) => {
-    const { addArrayItem, removeArrayItem, cvData } = useCV();
+const SoftSkills: React.FC = () => {
+    const { addArrayItem, removeArrayItem, cvData, updateProgress } = useCV();
     const { handleSubmit: submit, formState: { errors, isSubmitting }, control, reset } = useForm<SoftSkillsItem>({
         resolver: yupResolver(SoftSkillsCVDataValidation),
         defaultValues: createNewSoftSkills(),
@@ -76,7 +73,7 @@ const SoftSkills: React.FC<CVFormProps> = ({ nextProgress }) => {
                         })
                     }
                     <div className="mt-4 flex justify-end">
-                        <Button onClick={nextProgress}>Suivant</Button>
+                        <Button onClick={updateProgress}>Suivant</Button>
                     </div>
                 </ScrollArea>
             </div>

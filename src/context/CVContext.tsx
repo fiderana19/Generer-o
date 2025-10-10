@@ -5,6 +5,8 @@ type ArrayElement<A> = A extends readonly (infer T)[] ? T : never;
 
 export interface CVContextType {
   cvData: CVData;
+  progress: number;
+  updateProgress: () => void;
   updateObjectSection: <K extends keyof CVData>(field: K, newObject: CVData[K]) => void;
   addArrayItem: <K extends keyof CVData>(arrayField: K, newItem: ArrayElement<CVData[K]>) => void;
   removeArrayItem: (arrayField: keyof CVData, index: number) => void;
@@ -14,8 +16,10 @@ const CVContext = createContext<CVContextType | undefined>(undefined);
 
 export const CVProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [cvData, setCvData] = useState<CVData>(initialCVData);
+  const [progress, setProgress] = useState<number>(4);
 
   useEffect(() => {
+    setProgress(4);
     const savedData = localStorage.getItem('userCVData');
     
     if (savedData) {
@@ -57,7 +61,13 @@ export const CVProvider: React.FC<{ children: React.ReactNode }> = ({ children }
     });
   }, []);
 
+  const updateProgress = () => {
+    setProgress(progress + 12)
+  }
+
   const contextValue: CVContextType = {
+    progress,
+    updateProgress,
     cvData,
     updateObjectSection,
     addArrayItem,
