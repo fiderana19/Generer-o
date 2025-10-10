@@ -38,3 +38,8 @@ export const SkillsCVDataValidation = yup.object({
 export const SoftSkillsCVDataValidation = yup.object({
     skill: yup.string().required("La soft skill est requise !"),
 })
+
+export const LanguagesCVDataValidation = yup.object({
+    language: yup.string().required("Le langue est requis !"),
+    level: yup.number().max(5, "Le niveau est sur une echelle de 1 à 5 !").required("Le niveau est requis !"),
+})

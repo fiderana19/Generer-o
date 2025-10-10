@@ -19,3 +19,8 @@ export const createNewSkills = () => ({
 export const createNewSoftSkills = () => ({ 
     skill: "", 
 });
+
+export const createNewLanguage = () => ({ 
+    language: "", 
+    level: 0, 
+});

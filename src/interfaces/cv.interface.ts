@@ -43,7 +43,7 @@ export interface HobbiesItem {
 
 export interface LanguagesItem {
   language: string, 
-  level: string
+  level: number
 }
 
 export interface CVData {
