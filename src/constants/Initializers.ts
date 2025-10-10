@@ -24,3 +24,7 @@ export const createNewLanguage = () => ({
     language: "", 
     level: 0, 
 });
+
+export const createNewHobbies = () => ({ 
+    hobby: "", 
+});

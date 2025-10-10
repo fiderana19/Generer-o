@@ -43,3 +43,7 @@ export const LanguagesCVDataValidation = yup.object({
     language: yup.string().required("Le langue est requis !"),
     level: yup.number().max(5, "Le niveau est sur une echelle de 1 à 5 !").required("Le niveau est requis !"),
 })
+
+export const HobbiesCVDataValidation = yup.object({
+    hobby: yup.string().required("L'interet est requis !"),
+})
