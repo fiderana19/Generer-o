@@ -1,37 +1,55 @@
 import { useCV } from "@/context/CVContext";
-import React from "react";
-import General from "./General";
-import Education from "./Education";
-import Experience from "./Experience";
-import Hobbies from "./Hobbies";
-import Skills from "./Skills";
-import SoftSkills from "./SoftSkills";
-import Contact from "./Contact";
-import Languages from "./Languages";
-
+import { LoadingOutlined } from "@ant-design/icons";
+import React, { lazy, Suspense } from "react";
+const General = lazy(() => import("./General"));
+const Education = lazy(() => import("./Education"));
+const Experience = lazy(() => import("./Experience"));
+const Hobbies = lazy(() => import("./Hobbies"));
+const Skills = lazy(() => import("./Skills"));
+const SoftSkills = lazy(() => import("./SoftSkills"));
+const Contact = lazy(() => import("./Contact"));
+const Languages = lazy(() => import("./Languages"));
 
 const CVForms: React.FC = () => {
     const { progress } = useCV();
 
     switch (progress) {
         case 4:
-            return <General />    
+            return <Suspense fallback={<div className='text-6xl h-80 flex flex-col justify-center text-center'><LoadingOutlined /></div>}>
+                <General />
+            </Suspense>
         case 16:
-            return <Contact />    
+            return <Suspense fallback={<div className='text-6xl h-80 flex flex-col justify-center text-center'><LoadingOutlined /></div>}>
+                <Contact />
+            </Suspense> 
         case 28:
-            return <Education />    
+            return <Suspense fallback={<div className='text-6xl h-80 flex flex-col justify-center text-center'><LoadingOutlined /></div>}>
+                <Education />
+            </Suspense>   
         case 40:
-            return <Experience />    
+            return <Suspense fallback={<div className='text-6xl h-80 flex flex-col justify-center text-center'><LoadingOutlined /></div>}>
+                <Experience />
+            </Suspense>   
         case 52:
-            return <Skills />    
+            return <Suspense fallback={<div className='text-6xl h-80 flex flex-col justify-center text-center'><LoadingOutlined /></div>}>
+                <Skills />
+            </Suspense>    
         case 64:
-            return <SoftSkills />    
+            return <Suspense fallback={<div className='text-6xl h-80 flex flex-col justify-center text-center'><LoadingOutlined /></div>}>
+                <SoftSkills />
+            </Suspense>
         case 76:
-            return <Languages />    
+            return <Suspense fallback={<div className='text-6xl h-80 flex flex-col justify-center text-center'><LoadingOutlined /></div>}>
+                <Languages />
+            </Suspense>
         case 88:
-            return <Hobbies />    
+            return <Suspense fallback={<div className='text-6xl h-80 flex flex-col justify-center text-center'><LoadingOutlined /></div>}>
+                <Hobbies />
+            </Suspense>
         default:
-            return <General />    
+            return <Suspense fallback={<div className='text-6xl h-80 flex flex-col justify-center text-center'><LoadingOutlined /></div>}>
+                <General />
+            </Suspense>
     }
 }
 
