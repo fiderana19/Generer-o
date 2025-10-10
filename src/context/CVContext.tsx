@@ -6,15 +6,7 @@ type ArrayElement<A> = A extends readonly (infer T)[] ? T : never;
 export interface CVContextType {
   cvData: CVData;
   updateObjectSection: <K extends keyof CVData>(field: K, newObject: CVData[K]) => void;
-  updateArrayItem: <K extends keyof CVData>(
-    arrayField: K, 
-    index: number, 
-    newObject: ArrayElement<CVData[K]>
-  ) => void;
-  addArrayItem: <K extends keyof CVData>(
-    arrayField: K, 
-    newItem: ArrayElement<CVData[K]>
-  ) => void;
+  addArrayItem: <K extends keyof CVData>(arrayField: K, newItem: ArrayElement<CVData[K]>) => void;
   removeArrayItem: (arrayField: keyof CVData, index: number) => void;
 }
 
@@ -40,7 +32,7 @@ export const CVProvider: React.FC<{ children: React.ReactNode }> = ({ children }
     localStorage.setItem('userCVData', JSON.stringify(cvData));
   }, [cvData]);
 
-  const updateObjectSection = useCallback((field: any, newObject: any) => {
+  const updateObjectSection = useCallback(<K extends keyof CVData>(field: K, newObject: CVData[K]) => {
     if (typeof newObject === 'object' && newObject !== null) {
       setCvData(prevData => ({
         ...prevData,
@@ -48,25 +40,17 @@ export const CVProvider: React.FC<{ children: React.ReactNode }> = ({ children }
       }));
     }
   }, []);
-
-  const updateArrayItem = useCallback((arrayField: any, index: any, newObject: any) => {
-    setCvData((prevData: any) => {
-      const currentArray = prevData[arrayField] as Array<any>;
-      const newArray = currentArray.map((item, i) => 
-        i === index ? newObject : item
-      );
-      return { ...prevData, [arrayField]: newArray };
-    });
-  }, []);
   
-  const addArrayItem = useCallback((arrayField: any, newItem: any) => {
+  const addArrayItem = useCallback(<K extends keyof CVData>(arrayField: K, newItem: ArrayElement<CVData[K]>) => {
+    const item = {...newItem};
     setCvData((prevData: any) => ({
       ...prevData,
-      [arrayField]: [...(prevData[arrayField] as Array<any>), newItem],
-    }));
+      [arrayField]: [...(prevData[arrayField]), item],
+    }
+  ));
   }, []);
   
-  const removeArrayItem = useCallback((arrayField: any, index: any) => {
+  const removeArrayItem = useCallback((arrayField: keyof CVData, index: number) => {
     setCvData((prevData: any) => {
       const newArray = (prevData[arrayField] as Array<any>).filter((_, i) => i !== index);
       return { ...prevData, [arrayField]: newArray };
@@ -76,7 +60,6 @@ export const CVProvider: React.FC<{ children: React.ReactNode }> = ({ children }
   const contextValue: CVContextType = {
     cvData,
     updateObjectSection,
-    updateArrayItem,
     addArrayItem,
     removeArrayItem,
   };
