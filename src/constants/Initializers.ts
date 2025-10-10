@@ -15,3 +15,7 @@ export const createNewSkills = () => ({
     skill: "", 
     level: 0, 
 });
+
+export const createNewSoftSkills = () => ({ 
+    skill: "", 
+});
