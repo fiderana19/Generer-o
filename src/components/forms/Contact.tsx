@@ -26,8 +26,8 @@ const Contact: React.FC = () => {
     return(
         <div>
             <div className="font-extrabold">Contacts</div>
-            <form onSubmit={submit(handleSubmit)} className="mt-4 mx-4 h-80 overflow-hidden scroll-auto">
-                <ScrollArea className="w-full h-80 px-4">
+            <form onSubmit={submit(handleSubmit)} className="mt-4 mx-4 h-[65vh] overflow-hidden scroll-auto">
+                <ScrollArea className="w-full h-[65vh] px-4">
                     <Label className="mb-1">Adresse :</Label>
                     <Controller
                         control={control}

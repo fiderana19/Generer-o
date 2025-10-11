@@ -18,6 +18,9 @@ export const TemplateA: React.FC = () => {
       <div>
         { cvData.general.profileSummary }        
       </div>
+      <div>
+        <img src={cvData?.general.profilePhoto} alt="Photo de profile" className="w-60 h-60 object-cover"/>               
+      </div>
 -------------
       <div>
         { cvData.contact.address }        

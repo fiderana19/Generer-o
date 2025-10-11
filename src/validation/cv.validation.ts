@@ -5,6 +5,7 @@ export const GeneralCVDataValidation = yup.object({
     lastName: yup.string().nullable().optional(),
     title: yup.string().required("Votre titre est requis !"), 
     profileSummary: yup.string().required("Vous devez fournir une description !"),
+    profilePhoto: yup.string().required("Photo de profile requis !"),
 })
 
 export const ContactCVDataValidation = yup.object({

@@ -1,8 +1,11 @@
+import { initialProfilePhoto } from "@/utils/FileHandler";
+
 export interface GeneralData {
   firstName: string;
   lastName: string | null | undefined;
   title: string; 
   profileSummary: string;
+  profilePhoto: string;
 }
 
 export interface ContactData {
@@ -70,6 +73,7 @@ export const initialCVData: CVData = {
     lastName: "VOTRE PRÉNOM",
     title: "Titre du Poste",
     profileSummary: "Votre profil professionnel ici...",
+    profilePhoto: initialProfilePhoto,
   },
   contact: { email: "", phone: "", facebook: "", linkedin: "",   address: "", github: "", website: "" },
   education: [],

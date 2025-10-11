@@ -60,8 +60,8 @@ const SoftSkills: React.FC = () => {
                     </form>
                 </PopoverContent>
             </Popover>
-            <div className="mt-2 h-80 overflow-hidden scroll-auto">
-                <ScrollArea className="w-full h-80 px-4">
+            <div className="mt-2 h-[65vh] overflow-hidden scroll-auto">
+                <ScrollArea className="w-full h-[65vh] px-4">
                     {
                         cvData?.soft_skills && cvData?.soft_skills.map((skill: SoftSkillsItem, index: number) => {
                             return <div key={index} className="border border-dashed rounded p-2 my-1">

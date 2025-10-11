@@ -54,21 +54,23 @@ const EditorPage: React.FC<any> = () => {
             {
               (progress !== 100) ?
                 <Card className='px-4'>
-                  <Suspense fallback={<div className='text-6xl h-80 flex flex-col justify-center text-center'><LoadingOutlined /></div>}>
+                  <Suspense fallback={<div className='text-6xl h-[65vh] flex flex-col justify-center text-center'><LoadingOutlined /></div>}>
                     <CVForms />
                   </Suspense>
                 </Card>              
               :
               <Card className='px-8'>
-                <div className='text-center'>
-                  <div className='text-xl font-bold'>Votre CV est pret !</div>
-                  <div className='text-6xl my-4'><CoffeeOutlined /></div>
-                  <div className='text-sm mt-2 text-gray-500'>Et voilà, vous pouvez maintenant imprimer votre CV avec le modèle que vous avez choisi.</div>
-                </div>
-                <div className='flex justify-center'>
-                  <Button className='w-max' onClick={reactToPrintFn}> 
-                    Imprimer
-                  </Button>
+                <div className='h-[65vh] flex flex-col justify-center'>
+                  <div className='text-center'>
+                    <div className='text-xl font-bold'>Votre CV est pret !</div>
+                    <div className='text-6xl my-4'><CoffeeOutlined /></div>
+                    <div className='text-sm mt-2 text-gray-500'>Et voilà, vous pouvez maintenant imprimer votre CV avec le modèle que vous avez choisi.</div>
+                  </div>
+                  <div className='flex justify-center mt-4'>
+                    <Button className='w-max' onClick={reactToPrintFn}> 
+                      Imprimer
+                    </Button>
+                  </div>
                 </div>
               </Card>
             }
