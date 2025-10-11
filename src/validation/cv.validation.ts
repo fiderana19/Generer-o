@@ -48,3 +48,9 @@ export const LanguagesCVDataValidation = yup.object({
 export const HobbiesCVDataValidation = yup.object({
     hobby: yup.string().required("L'interet est requis !"),
 })
+
+export const ColorsCVDataValidation = yup.object({
+    primary: yup.string().optional(),
+    secondary: yup.string().optional(),
+    third: yup.string().optional(),
+})

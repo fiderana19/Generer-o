@@ -9,20 +9,21 @@ const Skills = lazy(() => import("./Skills"));
 const SoftSkills = lazy(() => import("./SoftSkills"));
 const Contact = lazy(() => import("./Contact"));
 const Languages = lazy(() => import("./Languages"));
+const Colors = lazy(() => import("./Colors"));
 
 const CVForms: React.FC = () => {
     const { progress } = useCV();
 
     switch (progress) {
-        case 4:
+        case 10:
             return <Suspense fallback={<div className='text-6xl h-[65vh] flex flex-col justify-center text-center'><LoadingOutlined /></div>}>
                 <General />
             </Suspense>
-        case 16:
+        case 20:
             return <Suspense fallback={<div className='text-6xl h-[65vh] flex flex-col justify-center text-center'><LoadingOutlined /></div>}>
                 <Contact />
             </Suspense> 
-        case 28:
+        case 30:
             return <Suspense fallback={<div className='text-6xl h-[65vh] flex flex-col justify-center text-center'><LoadingOutlined /></div>}>
                 <Education />
             </Suspense>   
@@ -30,21 +31,25 @@ const CVForms: React.FC = () => {
             return <Suspense fallback={<div className='text-6xl h-[65vh] flex flex-col justify-center text-center'><LoadingOutlined /></div>}>
                 <Experience />
             </Suspense>   
-        case 52:
+        case 50:
             return <Suspense fallback={<div className='text-6xl h-[65vh] flex flex-col justify-center text-center'><LoadingOutlined /></div>}>
                 <Skills />
             </Suspense>    
-        case 64:
+        case 60:
             return <Suspense fallback={<div className='text-6xl h-[65vh] flex flex-col justify-center text-center'><LoadingOutlined /></div>}>
                 <SoftSkills />
             </Suspense>
-        case 76:
+        case 70:
             return <Suspense fallback={<div className='text-6xl h-[65vh] flex flex-col justify-center text-center'><LoadingOutlined /></div>}>
                 <Languages />
             </Suspense>
-        case 88:
+        case 80:
             return <Suspense fallback={<div className='text-6xl h-[65vh] flex flex-col justify-center text-center'><LoadingOutlined /></div>}>
                 <Hobbies />
+            </Suspense>
+        case 90:
+            return <Suspense fallback={<div className='text-6xl h-[65vh] flex flex-col justify-center text-center'><LoadingOutlined /></div>}>
+                <Colors />
             </Suspense>
         default:
             return <Suspense fallback={<div className='text-6xl h-[65vh] flex flex-col justify-center text-center'><LoadingOutlined /></div>}>

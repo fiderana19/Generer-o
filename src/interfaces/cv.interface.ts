@@ -49,6 +49,12 @@ export interface LanguagesItem {
   level: number
 }
 
+export interface CVBaseColors {
+  primary: string, 
+  secondary: string, 
+  third: string, 
+}
+
 export interface CVData {
   general: GeneralData;
 
@@ -65,6 +71,8 @@ export interface CVData {
   hobbies: HobbiesItem[];
 
   languages: LanguagesItem[],
+
+  colors: CVBaseColors;
 }
 
 export const initialCVData: CVData = {
@@ -81,5 +89,10 @@ export const initialCVData: CVData = {
   soft_skills: [],
   experiences: [],
   languages: [],
-  hobbies: []
+  hobbies: [],
+  colors: {
+    primary: "",
+    secondary: "",
+    third: ""
+  }
 };

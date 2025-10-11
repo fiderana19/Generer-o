@@ -16,10 +16,10 @@ const CVContext = createContext<CVContextType | undefined>(undefined);
 
 export const CVProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [cvData, setCvData] = useState<CVData>(initialCVData);
-  const [progress, setProgress] = useState<number>(4);
+  const [progress, setProgress] = useState<number>(10);
 
   useEffect(() => {
-    setProgress(4);
+    setProgress(10);
     const savedData = localStorage.getItem('userCVData');
     
     if (savedData) {
@@ -62,7 +62,7 @@ export const CVProvider: React.FC<{ children: React.ReactNode }> = ({ children }
   }, []);
 
   const updateProgress = () => {
-    setProgress(progress + 12)
+    setProgress(progress + 10)
   }
 
   const contextValue: CVContextType = {
