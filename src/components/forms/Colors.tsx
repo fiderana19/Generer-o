@@ -12,7 +12,7 @@ import { useCV } from "@/context/CVContext";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "../ui/hover-card";
 
 const Colors: React.FC = () => {
-    const { updateObjectSection, updateProgress } = useCV();
+    const { updateObjectSection, updateProgress, cvData } = useCV();
     const { handleSubmit: submit, formState: { errors, isSubmitting }, control } = useForm<CVBaseColors>({
         resolver: yupResolver(ColorsCVDataValidation)
     })
@@ -45,18 +45,20 @@ const Colors: React.FC = () => {
                     <Label className="mb-1">Base :</Label>
                     <Controller
                         control={control}
-                        name="primary"
+                        name="base"
+                        defaultValue={cvData.colors.base}
                         render={({ field: { value, onChange } }) => (
-                            <Input type="color" value={value} onChange={onChange} className={`${errors?.primary && 'border rounded text-red-500 border-red-500'}`}  />
+                            <Input type="color" value={value} defaultValue={cvData.colors.base} onChange={onChange} className={`${errors?.base && 'border rounded text-red-500 border-red-500'}`}  />
                         )}
                     />
-                    { errors?.primary && <div className="text-xs text-red-500 w-full text-left">{ errors?.primary?.message }</div> }
+                    { errors?.base && <div className="text-xs text-red-500 w-full text-left">{ errors?.base?.message }</div> }
                     <Label className="mb-1 mt-2">Second :</Label>
                     <Controller
                         control={control}
                         name="secondary"
+                        defaultValue={cvData.colors.secondary}
                         render={({ field: { value, onChange } }) => (
-                            <Input type="color" value={value} onChange={onChange} className={`${errors?.secondary && 'border rounded text-red-500 border-red-500'}`}  />
+                            <Input type="color" value={value} defaultValue={cvData.colors.secondary} onChange={onChange} className={`${errors?.secondary && 'border rounded text-red-500 border-red-500'}`}  />
                         )}
                     />
                     { errors?.secondary && <div className="text-xs text-red-500 w-full text-left">{ errors?.secondary?.message }</div> }
@@ -64,8 +66,9 @@ const Colors: React.FC = () => {
                     <Controller
                         control={control}
                         name="third"
+                        defaultValue={cvData.colors.third}
                         render={({ field: { value, onChange } }) => (
-                            <Input type="color" value={value} onChange={onChange} className={`${errors?.third && 'border rounded text-red-500 border-red-500'}`}  />
+                            <Input type="color" value={value} defaultValue={cvData.colors.third} onChange={onChange} className={`${errors?.third && 'border rounded text-red-500 border-red-500'}`}  />
                         )}
                     />
                     { errors?.third && <div className="text-xs text-red-500 w-full text-left">{ errors?.third?.message }</div> }

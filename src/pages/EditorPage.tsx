@@ -38,8 +38,8 @@ const EditorPage: React.FC<any> = () => {
       </Suspense>
       <div className='flex justify-between px-[4%] w-full'>
         <div>
-          <div className={`w-[794px] h-[1123px] bg-white overflow-auto shadow-2xl`}>
-            <div ref={componentRef}>
+          <div className={`w-[794px] h-[1123px] bg-white overflow-hidden shadow-2xl`}>
+            <div className='w-[794px] h-[1123px] overflow-hidden' ref={componentRef}>
               <Suspense fallback={<div className='text-6xl h-full w-full flex flex-col justify-center text-center'><LoadingOutlined /></div>}>
                 <PrintableCV 
                   TemplateComponent={TemplateComponent} 

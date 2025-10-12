@@ -28,3 +28,15 @@ export const createNewLanguage = () => ({
 export const createNewHobbies = () => ({ 
     hobby: "", 
 });
+
+export const createNewColors = () => ({
+    base: BASE_COLORS.base,
+    second: BASE_COLORS.second,
+    third: BASE_COLORS.third,
+})
+
+export const BASE_COLORS = {
+    base: "#113743",
+    second: "#79EBF6",
+    third: "#727077",
+}

@@ -4,9 +4,9 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --color-primary-custom: #79EBF6;
-  --color-second-custom: #D9F8FB;
-  --color-third-custom: #D5E3E6;
+  --color-primary-custom: #113743;
+  --color-second-custom: #79EBF6;
+  --color-third-custom: #C5BEBA;
   --color-four-custom: #FBFCFE;
 }
 
@@ -181,4 +181,8 @@
 
 .grid-customized {
   grid-template-columns: repeat(auto-fill, minmax(250px, 250px));
+}
+
+.grid-two-spaces {
+  grid-template-columns: repeat(auto-fill, minmax(230px, 230px));
 }

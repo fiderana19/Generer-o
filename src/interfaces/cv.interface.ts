@@ -1,3 +1,4 @@
+import { BASE_COLORS } from "@/constants/Initializers";
 import { initialProfilePhoto } from "@/utils/FileHandler";
 
 export interface GeneralData {
@@ -50,7 +51,7 @@ export interface LanguagesItem {
 }
 
 export interface CVBaseColors {
-  primary: string, 
+  base: string, 
   secondary: string, 
   third: string, 
 }
@@ -79,8 +80,8 @@ export const initialCVData: CVData = {
   general: {   
     firstName: "VOTRE NOM",
     lastName: "VOTRE PRÉNOM",
-    title: "Titre du Poste",
-    profileSummary: "Votre profil professionnel ici...",
+    title: "Votre titre",
+    profileSummary: "Votre description professionnelle...",
     profilePhoto: initialProfilePhoto,
   },
   contact: { email: "", phone: "", facebook: "", linkedin: "",   address: "", github: "", website: "" },
@@ -91,8 +92,8 @@ export const initialCVData: CVData = {
   languages: [],
   hobbies: [],
   colors: {
-    primary: "",
-    secondary: "",
-    third: ""
+    base: BASE_COLORS.base,
+    secondary: BASE_COLORS.second,
+    third: BASE_COLORS.third
   }
 };
