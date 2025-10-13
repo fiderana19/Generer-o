@@ -47,16 +47,18 @@ const Contact: React.FC = () => {
                     />
                     { errors?.email && <div className="text-xs text-red-500 w-full text-left">{ errors?.email?.message }</div> }
                     <Label className="mb-1 mt-2">Telephone :</Label>
-                    <div className="relative">
-                        <div className="border absolute top-[1px] left-0 p-1 rounded">+261</div>
+                    <div className="flex justify-between items-center gap-2">
+                        <div className="relative w-max">
+                            <div className="border p-1 rounded">+261</div>
+                        </div>
+                        <Controller
+                            control={control}
+                            name="phone"
+                            render={({ field: { value, onChange } }) => (
+                                <Input value={value} onChange={onChange} onKeyPress={handleNumberKeyPress} className={`w-5/4 ${errors?.phone && 'border rounded text-red-500 border-red-500'}`}  />
+                            )}
+                        />
                     </div>
-                    <Controller
-                        control={control}
-                        name="phone"
-                        render={({ field: { value, onChange } }) => (
-                            <Input value={value} onChange={onChange} onKeyPress={handleNumberKeyPress} className={`ml-12 w-48 ${errors?.phone && 'border rounded text-red-500 border-red-500'}`}  />
-                        )}
-                    />
                     { errors?.phone && <div className="text-xs text-red-500 w-full text-left">{ errors?.phone?.message }</div> }
                     <Accordion
                         type="single"

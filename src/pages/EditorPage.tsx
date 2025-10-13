@@ -12,6 +12,8 @@ import {
 import { Progress } from '@/components/ui/progress';
 import { CoffeeOutlined, LoadingOutlined } from '@ant-design/icons';
 import { useCV } from '@/context/CVContext';
+import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
+import PopoverDemo from '@/components/demo/PopoverDemo';
 const CVForms = lazy(() => import('@/components/forms/CVForms'));
 
 const templates = {
@@ -36,30 +38,29 @@ const EditorPage: React.FC<any> = () => {
       <Suspense fallback={<div className='py-3 w-full text-xl fixed top-0'><LoadingOutlined className='mx-auto' /></div>}>
         <Navigation />
       </Suspense>
-      <div className='flex justify-between px-[4%] w-full'>
-        <div>
-          <div className={`w-[794px] h-[1123px] bg-white overflow-hidden shadow-2xl`}>
-            <div className='w-[794px] h-[1123px] overflow-hidden' ref={componentRef}>
-              <Suspense fallback={<div className='text-6xl h-full w-full flex flex-col justify-center text-center'><LoadingOutlined /></div>}>
-                <PrintableCV 
-                  TemplateComponent={TemplateComponent} 
-                />
-              </Suspense>
-            </div> 
-          </div>
-        </div>
-        <div className='w-1/4 fixed right-[4%] top-16'>
-          <div className="flex w-full max-w-sm flex-col gap-6">
+      <div className='block md:flex justify-between px-[4%] w-full'>
+        <ScrollArea className={`hidden md:block w-2/4 h-[75vh] xl:h-[1123px] xl:w-[794px] bg-white overflow-hidden shadow-2xl`}>
+          <div className='w-[794px] h-[1123px] overflow-hidden' ref={componentRef}>
+            <Suspense fallback={<div className='text-6xl h-full w-full flex flex-col justify-center text-center'><LoadingOutlined /></div>}>
+              <PrintableCV 
+                TemplateComponent={TemplateComponent} 
+              />
+            </Suspense>
+          </div> 
+          <ScrollBar orientation='horizontal' />
+        </ScrollArea>
+        <div className='w-full md:w-1/3 xl:w-1/4 block md:fixed right-[4%] top-16'>
+          <div className="flex w-full max-w-sm mx-auto flex-col gap-6">
             <Progress value={progress} />
             {
               (progress !== 100) ?
-                <Card className='px-4'>
+                <Card className='px-4 w-full'>
                   <Suspense fallback={<div className='text-6xl h-[65vh] flex flex-col justify-center text-center'><LoadingOutlined /></div>}>
                     <CVForms />
                   </Suspense>
                 </Card>              
               :
-              <Card className='px-8'>
+              <Card className='px-8 w-full'>
                 <div className='h-[65vh] flex flex-col justify-center'>
                   <div className='text-center'>
                     <div className='text-xl font-bold'>Votre CV est pret !</div>
